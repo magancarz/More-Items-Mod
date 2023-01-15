@@ -37,8 +37,9 @@ public class MoreItemsMod {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        // Register mod items to a creative tab
+        // Register mod items and blocks to a creative tab
         modEventBus.addListener(ModItems::addCreative);
+        modEventBus.addListener(ModBlocks::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
