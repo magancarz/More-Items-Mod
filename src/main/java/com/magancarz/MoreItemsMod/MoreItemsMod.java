@@ -1,5 +1,6 @@
-package com.example.examplemod;
+package com.magancarz.MoreItemsMod;
 
+import com.magancarz.MoreItemsMod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -21,19 +22,12 @@ import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(com.example.examplemod.MoreItemsMod.MOD_ID)
-public class MoreItemsMod
-{
+@Mod(com.magancarz.MoreItemsMod.MoreItemsMod.MOD_ID)
+public class MoreItemsMod {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "moreitemsmod";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-
-    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
-
-    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
-    public static final RegistryObject<Item> ZIRCON = ITEMS.register("zircon", () -> new Item(new Item.Properties()));
 
     public MoreItemsMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -41,24 +35,19 @@ public class MoreItemsMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
+        // Register mod items to a creative tab
+        modEventBus.addListener(ModItems::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
-    }
-
-    private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES)
-            event.accept(ZIRCON);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
