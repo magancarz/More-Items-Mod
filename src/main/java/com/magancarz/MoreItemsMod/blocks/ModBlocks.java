@@ -25,17 +25,17 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> ZIRCON_ORE = BLOCKS.register("zircon_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(6.f).requiresCorrectToolForDrops(),
+                    .strength(1.f).requiresCorrectToolForDrops(),
                     UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> DEEPSLATE_ZIRCON_ORE = BLOCKS.register("deepslate_zircon_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(6.f).requiresCorrectToolForDrops(),
+                    .strength(1.f).requiresCorrectToolForDrops(),
                     UniformInt.of(3, 7)));
 
     public static final RegistryObject<Block> ZIRCON_BLOCK = BLOCKS.register("zircon_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
-                    .strength(6.f).requiresCorrectToolForDrops()));
+                    .strength(1.f).requiresCorrectToolForDrops()));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

@@ -18,6 +18,7 @@ public class ModItems {
 
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
     public static final RegistryObject<Item> ZIRCON = ITEMS.register("zircon", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_ZIRCON = ITEMS.register("raw_zircon", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ZIRCON_BLOCK = ITEMS.register("zircon_block", () -> new BlockItem(ModBlocks.ZIRCON_BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> ZIRCON_ORE = ITEMS.register("zircon_ore", () -> new BlockItem(ModBlocks.ZIRCON_ORE.get(), new Item.Properties()));
@@ -28,9 +29,10 @@ public class ModItems {
     }
 
     public static void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if(event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.ZIRCON);
-        } else if(event.getTab() == CreativeModeTabs.NATURAL_BLOCKS) {
+        if(event.getTab() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ZIRCON);
+            event.accept(RAW_ZIRCON);
+        } else if(event.getTab() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ZIRCON_BLOCK);
             event.accept(ZIRCON_ORE);
             event.accept(DEEPSLATE_ZIRCON_ORE);
