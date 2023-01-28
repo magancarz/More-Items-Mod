@@ -2,6 +2,7 @@ package com.magancarz.MoreItemsMod.items;
 
 import com.magancarz.MoreItemsMod.MoreItemsMod;
 import com.magancarz.MoreItemsMod.blocks.ModBlocks;
+import com.magancarz.MoreItemsMod.items.custom.EightBallItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -24,6 +25,8 @@ public class ModItems {
     public static final RegistryObject<Item> ZIRCON_ORE = ITEMS.register("zircon_ore", () -> new BlockItem(ModBlocks.ZIRCON_ORE.get(), new Item.Properties()));
     public static final RegistryObject<Item> DEEPSLATE_ZIRCON_ORE = ITEMS.register("deepslate_zircon_ore", () -> new BlockItem(ModBlocks.DEEPSLATE_ZIRCON_ORE.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> EIGHT_BALL = ITEMS.register("eight_ball", () -> new EightBallItem(new Item.Properties().stacksTo(1)));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
@@ -36,6 +39,8 @@ public class ModItems {
             event.accept(ZIRCON_BLOCK);
             event.accept(ZIRCON_ORE);
             event.accept(DEEPSLATE_ZIRCON_ORE);
+        } else if(event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(EIGHT_BALL);
         }
     }
 }
