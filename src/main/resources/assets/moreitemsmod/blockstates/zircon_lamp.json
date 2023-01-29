@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=true": { "model": "moreitemsmod:block/zircon_lamp_on" },
+    "lit=false": { "model": "moreitemsmod:block/zircon_lamp_off" }
+  }
+}
