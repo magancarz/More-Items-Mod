@@ -29,6 +29,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> TRAIL = ITEMS.register("trail_block", () -> new BlockItem(ModBlocks.TRAIL_BLOCK.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> ZIRCON_LAMP = ITEMS.register("zircon_lamp", () -> new BlockItem(ModBlocks.ZIRCON_LAMP.get(), new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
@@ -42,6 +44,7 @@ public class ModItems {
             event.accept(ZIRCON_ORE);
             event.accept(DEEPSLATE_ZIRCON_ORE);
             event.accept(TRAIL);
+            event.accept(ZIRCON_LAMP);
         } else if(event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EIGHT_BALL);
         }

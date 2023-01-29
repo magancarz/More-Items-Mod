@@ -2,6 +2,7 @@ package com.magancarz.MoreItemsMod.blocks;
 
 import com.magancarz.MoreItemsMod.MoreItemsMod;
 import com.magancarz.MoreItemsMod.blocks.custom.TrailBlock;
+import com.magancarz.MoreItemsMod.blocks.custom.ZirconLampBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Block;
@@ -36,6 +37,11 @@ public class ModBlocks {
             () -> new TrailBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(1.f).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> ZIRCON_LAMP = BLOCKS.register("zircon_lamp",
+            () -> new ZirconLampBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .lightLevel(state -> state.getValue(ZirconLampBlock.LIT)? 15 : 0)
+                    .strength(1.f).requiresCorrectToolForDrops()));
+
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
@@ -47,6 +53,7 @@ public class ModBlocks {
             event.accept(DEEPSLATE_ZIRCON_ORE);
         } else if(event.getTab() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(TRAIL_BLOCK);
+            event.accept(ZIRCON_LAMP);
         }
     }
 }
