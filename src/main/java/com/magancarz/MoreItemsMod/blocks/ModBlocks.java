@@ -1,11 +1,13 @@
 package com.magancarz.MoreItemsMod.blocks;
 
 import com.magancarz.MoreItemsMod.MoreItemsMod;
+import com.magancarz.MoreItemsMod.blocks.custom.BlueberryCropBlock;
 import com.magancarz.MoreItemsMod.blocks.custom.TrailBlock;
 import com.magancarz.MoreItemsMod.blocks.custom.ZirconLampBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -41,6 +43,9 @@ public class ModBlocks {
             () -> new ZirconLampBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .lightLevel(state -> state.getValue(ZirconLampBlock.LIT)? 15 : 0)
                     .strength(1.f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> BLUEBERRY_CROP = BLOCKS.register("blueberry_crop",
+            () -> new BlueberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT)));
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

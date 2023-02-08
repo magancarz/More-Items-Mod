@@ -3,9 +3,11 @@ package com.magancarz.MoreItemsMod.items;
 import com.magancarz.MoreItemsMod.MoreItemsMod;
 import com.magancarz.MoreItemsMod.blocks.ModBlocks;
 import com.magancarz.MoreItemsMod.items.custom.EightBallItem;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -31,6 +33,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> ZIRCON_LAMP = ITEMS.register("zircon_lamp", () -> new BlockItem(ModBlocks.ZIRCON_LAMP.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> BLUEBERRY_SEEDS = ITEMS.register("blueberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.BLUEBERRY_CROP.get(),
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> BLUEBERRY = ITEMS.register("blueberry",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(2f).build())));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
@@ -47,6 +56,9 @@ public class ModItems {
             event.accept(ZIRCON_LAMP);
         } else if(event.getTab() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(EIGHT_BALL);
+        } else if(event.getTab() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(BLUEBERRY_SEEDS);
+            event.accept(BLUEBERRY);
         }
     }
 }
