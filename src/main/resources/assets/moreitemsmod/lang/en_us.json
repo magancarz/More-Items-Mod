@@ -2,10 +2,13 @@
   "item.moreitemsmod.zircon": "Zircon",
   "item.moreitemsmod.raw_zircon": "Raw Zircon",
   "item.moreitemsmod.eight_ball": "Eight Ball",
+  "item.moreitemsmod.blueberry": "Blueberry",
+  "item.moreitemsmod.blueberry_seeds": "Blueberry Seeds",
 
   "block.moreitemsmod.trail_block": "Trail Block",
   "block.moreitemsmod.zircon_block": "Block of Zircon",
   "block.moreitemsmod.zircon_ore": "Zircon Ore",
   "block.moreitemsmod.deepslate_zircon_ore": "Deepslate Zircon Ore",
-  "block.moreitemsmod.zircon_lamp": "Zircon Lamp"
+  "block.moreitemsmod.zircon_lamp": "Zircon Lamp",
+  "block.moreitemsmod.blueberry_crop": "Blueberry Crop"
 }
